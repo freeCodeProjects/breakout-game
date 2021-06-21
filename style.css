@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,300&display=swap');
+
+* {
+  padding    : 0;
+  margin     : 0;
+  box-sizing : border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background     : rgb(34, 193, 195);
+  background     : linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: space-evenly;
+  font-family    : Arial, Helvetica, sans-serif;
+  min-height     : 100vh;
+}
+
+.sidenav-overlay {
+  position        : fixed;
+  top             : 0;
+  left            : 0;
+  right           : 0;
+  opacity         : 0;
+  height          : 120vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index         : 1;
+  display         : none;
+}
+
+.sidenav-overlay.open {
+  opacity: 1;
+  display: block;
+}
+
+.sidenav {
+  counter-reset   : my-sec-counter;
+  position        : fixed;
+  top             : 0;
+  left            : 0;
+  width           : 400px;
+  line-height     : 1.5rem;
+  min-height      : 100%;
+  background-color: rgb(26, 25, 25);
+  padding         : 2rem 1.25rem;
+  z-index         : 2;
+  box-shadow      : 2px 1px 4px -1px rgba(0, 0, 0, 0.74);
+  transform       : translateX(-420px);
+  transition      : transform 0.5s ease-in-out;
+}
+
+.sidenav.open {
+  transform: translateX(0%);
+}
+
+.sidenav h1 {
+  font-weight  : bold;
+  font-size    : 3rem;
+  color        : white;
+  margin-bottom: 2rem;
+}
+
+.sidenav .close-icon {
+  color           : white;
+  height          : 2rem;
+  width           : 2rem;
+  position        : absolute;
+  left            : 350px;
+  top             : 16px;
+  cursor          : pointer;
+  background-color: red;
+}
+
+.rule {
+  margin-bottom: 0.5rem;
+  color        : rgb(245, 229, 200);
+}
+
+.rule::before {
+  counter-increment: my-sec-counter;
+  content          : counter(my-sec-counter) ". ";
+  font-size        : 1.25rem;
+  font-weight      : bold;
+  color            : rgba(236, 212, 169, 0.671);
+}
+
+.header {
+  width         : 900px;
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+  color         : rebeccapurple;
+  font-size     : 3rem;
+  font-weight   : 600;
+}
+
+.gameDetails {
+  display        : flex;
+  justify-content: space-between;
+  margin-bottom  : 0.125rem;
+}
+
+#canvas {
+  background   : #f0f0f0;
+  border-radius: 5px;
+}
+
+#source {
+  display: none;
+}
+
+#lives img {
+  height: 20px;
+  width : 20px;
+}
+
+.gameDetails div {
+  display        : flex;
+  justify-content: center;
+  align-items    : flex-end;
+  color          : hsla(328, 67%, 43%, 0.76);
+  font-size      : 1.5rem;
+}
+
+.gameDetails #lives {
+  display        : flex;
+  min-width      : 7rem;
+  justify-content: flex-start;
+}
+
+.gameDetails #lives img {
+  margin: 0.075rem;
+}
+
+.gameDetails .num-value {
+  font-weight: bold;
+  color      : white;
+  font-size  : 1.75rem;
+}
+
+.gameDetails div>span {
+  font-weight : bold;
+  margin-right: 0.5rem;
+}
+
+.switch {
+  position     : relative;
+  height       : 30px;
+  width        : 60px;
+  display      : flex;
+  margin-bottom: 0.125rem;
+}
+
+.slider.round {
+  border-radius: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  height : 0;
+  width  : 0;
+}
+
+.slider {
+  position        : absolute;
+  cursor          : pointer;
+  left            : 0;
+  right           : 0;
+  top             : 0;
+  bottom          : 0;
+  background-color: #ccc;
+  transition      : .4s;
+}
+
+.slider::before {
+  position        : absolute;
+  content         : "";
+  height          : 20px;
+  width           : 20px;
+  left            : 5px;
+  bottom          : 5px;
+  background-color: white;
+  transition      : .4s;
+  border-radius   : 50%;
+}
+
+input[type=checkbox]:checked+.slider::before {
+  transform: translateX(26px);
+}
+
+input[type=checkbox]:checked+.slider {
+  background-color: #2196F3;
+}
+
+.btn {
+  border         : none;
+  color          : white;
+  padding        : 10px 15px;
+  text-align     : center;
+  text-decoration: none;
+  display        : inline-block;
+  font-size      : 16px;
+  box-shadow     : 0 8px 20px -6px rgba(black, .3);
+  border-radius  : 8px;
+  margin         : 0.125rem;
+  cursor         : pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor : default;
+}
+
+.btn--green {
+  background-color: #4CAF50;
+}
+
+.btn--green:hover {
+  background-color: #639264;
+}
+
+.btn--blue {
+  background-color: #1124c8;
+}
+
+.btn--blue:hover {
+  background-color: #1123c8c7;
+}
+
+.btn--black {
+  background-color: #000000;
+}
+
+.btn--black:hover {
+  background-color: #000000b9;
+}
+
+btn:disabled {
+  background-color: #ccc;
+}
+
+.btn--rule {
+  position: fixed;
+  top     : 2rem;
+  left    : 2rem;
+}

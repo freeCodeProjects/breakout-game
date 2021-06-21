@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Breakout Game</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+	</head>
+	<body>
+		<header class="header">
+			<div>Breakout!</div>
+		</header>
+		<section>
+			<button class="btn btn--black btn--rule">Show Rules</button>
+			<nav class="sidenav">
+				<h1>Rules:</h1>
+				<svg
+					aria-hidden="true"
+					focusable="false"
+					data-prefix="fas"
+					data-icon="times"
+					class="close-icon"
+					role="img"
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 352 512"
+				>
+					<path
+						fill="currentColor"
+						d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+					></path>
+				</svg>
+				<div class="rules">
+					<div class="rule">
+						Game has total 5 levels with increasing dificulty and you will have
+						5 chances to complete all 5 levels.
+					</div>
+					<div class="rule">
+						Use 'Left Arrow' or 'Z' key to move paddle left.
+					</div>
+					<div class="rule">
+						Use 'Right Arrow' or '/' key to move paddle right.
+					</div>
+					<div class="rule">
+						Use the paddle to bounce the ball up and break the bricks.
+					</div>
+					<div class="rule">
+						You can use spacebar to control play and pause of game.
+					</div>
+				</div>
+			</nav>
+		</section>
+		<section>
+			<div class="gameDetails">
+				<div id="lives"></div>
+				<div>
+					<span class="title">Level</span>
+					<div class="num-value" id="level">1</div>
+				</div>
+				<div class="gameControl">
+					<button class="btn btn--blue" id="playOrPause">Play</button>
+					<button class="btn btn--blue" id="reset">Restart</button>
+				</div>
+				<div>
+					<span class="title">Audio</span>
+					<div>
+						<label class="switch">
+							<input id="audioControl" type="checkbox" />
+							<span class="slider round"></span>
+						</label>
+					</div>
+				</div>
+				<div>
+					<span class="title">Score</span>
+					<div class="num-value" id="score">0</div>
+				</div>
+			</div>
+			<canvas id="canvas" height="640" width="900"></canvas>
+		</section>
+		<div class="sidenav-overlay"></div>
+		<script type="module" src="js/index.js"></script>
+	</body>
+</html>
